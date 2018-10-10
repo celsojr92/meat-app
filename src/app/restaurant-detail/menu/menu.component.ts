@@ -12,10 +12,12 @@ export class MenuComponent implements OnInit {
 
   menu: Observable<MenuItem[]>;
 
-  constructor(private restaurantsService: RestaurantsService, private route: ActivatedRoute) { }
+  constructor(private restaurantsService: RestaurantsService, 
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.menu = this.restaurantsService.menuOfRestaurant(this.route.parent.snapshot.params['id']);
+    this.menu = this.restaurantsService
+      .menuOfRestaurant(this.route.parent.snapshot.params['id']);
   }
 
   addMenuItem(item: MenuItem) {
